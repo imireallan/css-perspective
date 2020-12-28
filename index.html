@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<h3>Css Perspective property</h3>
+		<div class="container">
+			<input
+				class="hidden"
+				type="radio"
+				name="rotateAxis"
+				id="x-axis"
+				checked
+			/>
+			<input class="hidden" type="radio" name="rotateAxis" id="y-axis" />
+			<input class="hidden" type="radio" name="rotateAxis" id="z-axis" />
+			<input
+				class="hidden"
+				type="checkbox"
+				name="perspective"
+				id="perspective"
+			/>
+			<!-- <button class="btn">click me</button> -->
+			<div class="wrapper">
+				<div class="square"></div>
+			</div>
+
+			<div class="form-group">
+				<label class="axis axisX" dropzone="move" draggable="true" for="x-axis">
+					X-axis
+				</label>
+				<label class="axis axisY" dropzone="move" draggable="true" for="y-axis">
+					Y-axis
+				</label>
+				<label class="axis axisZ" dropzone="move" draggable="true" for="z-axis">
+					Z-axis
+				</label>
+				<label
+					class="perspective"
+					dropzone="move"
+					draggable="true"
+					for="perspective"
+				>
+					Use Perspective
+				</label>
+			</div>
+		</div>
+		<!-- <script src="../build/index.js"></script> -->
+	</body>
+</html>

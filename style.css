@@ -1,0 +1,144 @@
+:root {
+	--animation-x: moveX;
+	--animation-y: moveY;
+	--animation-z: moveZ;
+	--shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Archivo", sans-serif;
+	background: linear-gradient(
+		to bottom,
+		rgba(240, 230, 140, 0.4),
+		rgba(240, 230, 140, 0.7)
+	);
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+
+h3 {
+	margin-top: 2em;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	background-image: linear-gradient(to right, limegreen, tomato);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 100%;
+	background-repeat: repeat;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper {
+	width: 500px;
+	height: 500px;
+	display: grid;
+	place-items: center;
+	box-shadow: var(--shadow);
+}
+
+.square {
+	background: linear-gradient(
+		to bottom right,
+		rgba(50, 205, 50, 0),
+		rgba(50, 205, 50, 0.7)
+	);
+	width: 150px;
+	height: 150px;
+	animation-timing-function: ease-in-out;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+.form-group {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	margin-left: 2em;
+	width: 400px;
+	height: 250px;
+	box-shadow: var(--shadow);
+}
+
+.hidden {
+	position: fixed;
+	top: -10000px;
+	left: -10000px;
+	visibility: hidden;
+}
+
+label.axis,
+label.perspective {
+	padding: 0.4em 1em;
+	background-color: #ccc;
+	border-radius: 8px;
+	margin: 1em;
+	border: 1px solid black;
+}
+
+label.perspective {
+	padding: 1em 1.5em;
+}
+
+#x-axis:checked ~ .form-group > label.axisX,
+#y-axis:checked ~ .form-group > label.axisY,
+#z-axis:checked ~ .form-group > label.axisZ,
+#perspective:checked ~ .form-group > label.perspective {
+	background: lime;
+}
+
+#x-axis:checked ~ .wrapper .square {
+	animation-name: var(--animation-x);
+}
+#y-axis:checked ~ .wrapper .square {
+	animation-name: var(--animation-y);
+}
+#z-axis:checked ~ .wrapper .square {
+	animation-name: var(--animation-z);
+}
+#perspective:checked ~ .wrapper {
+	perspective: 240px;
+}
+
+@keyframes moveX {
+	0% {
+		transform: translateX(-175px);
+	}
+
+	100% {
+		transform: translateX(175px);
+	}
+}
+
+@keyframes moveY {
+	0% {
+		transform: translateY(-175px);
+	}
+
+	100% {
+		transform: translateY(175px);
+	}
+}
+@keyframes moveZ {
+	0% {
+		transform: translateZ(-50px);
+	}
+
+	100% {
+		transform: translateZ(100px);
+	}
+}
